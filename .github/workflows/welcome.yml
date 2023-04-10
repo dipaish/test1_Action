@@ -1,0 +1,17 @@
+name: Post Welcome Comment
+on:
+  pull_request:
+    types: [opened]
+permissions:
+  pull-requests:  write
+jobs:
+  build:
+    name: Post Welcome Comment
+    runs-om:  ubuntu-latest
+    steps:
+      - run: gp pr comment $PR_URL --body "Welcome to the repository!"
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+    
+  
