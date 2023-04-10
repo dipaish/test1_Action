@@ -7,7 +7,7 @@ permissions:
 jobs:
   build:
     name: Post Welcome Comment
-    runs-om:  ubuntu-latest
+    runs-on:  ubuntu-latest
     steps:
       - run: gp pr comment $PR_URL --body "Welcome to the repository!"
         env: 
